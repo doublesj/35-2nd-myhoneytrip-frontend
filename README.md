@@ -14,7 +14,7 @@
   
 ### • 사용기술 및 협업 도구  
 > FE: Javascript, React, React-Router, styled-components  
->     library : slick slide, react date picker, mui modal, mul table  
+>     library : slick slide, react date picker, mui modal, mui table  
 > BE: Phython, Django, MySQL, MINICONDA3, POSTMAN  
 > Common : Git&Github, AWS 
 > Comunication : Notion, Slack, Trello, Github 
