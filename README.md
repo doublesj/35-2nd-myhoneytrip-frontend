@@ -59,7 +59,7 @@ https://user-images.githubusercontent.com/99232122/184281715-92bcc9a4-fe11-4405-
   }, [queryString]);
 ```
 
-##### - selectbox를 통한 filter 기능 구현 (feat. searchParams) (FE 신수정)
+##### - checkbox를 통한 filter 기능 구현 (feat. searchParams) (FE 신수정)
 ```
 const CheckBox = ({ queryString, setFlightData }) => {
   const [isChecked, setIsChecked] = useState({
