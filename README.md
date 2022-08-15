@@ -44,7 +44,9 @@ https://user-images.githubusercontent.com/99232122/184281715-92bcc9a4-fe11-4405-
 
 ####  3. 검색 상품 리스트 페이지
 - 데이터를 불러오기 전 로딩페이지 구현
-##### - useLocation을 활용해 querystring을 받아와 서버 데이터 요청 (FE 신수정)
+
+#### - 데이터 시각화 및 전달 과정에 대한 기능 구현 (feat. useLocation, useNavigate) (FE 신수정)  
+useLocation을 활용해 querystring을 받아와 서버 데이터 요청   
 ```
   const location = useLocation();
   const queryString = location.search;
@@ -58,8 +60,35 @@ https://user-images.githubusercontent.com/99232122/184281715-92bcc9a4-fe11-4405-
     }, 3000);
   }, [queryString]);
 ```
+useNavtigate안에 데이터를 담아 다음 페이지로 전달  
+```
+const savePurchase = ticket =>{
+    navigate( { state : ticket } );
+};
 
-##### - checkbox를 통한 filter 기능 구현 (feat. searchParams) (FE 신수정)
+...
+
+const goToPurchase = ticket =>{
+    alert('선택한 항공편 예약페이지로 이동합니다.');
+    navigate ('/purchase',{ state : ticekt } );  //purchase page로 선택한 값 state로 전달.
+};
+
+```
+```
+<S.FlightCostBox
+           onClick={() => {
+           const newSendingData = [...sendingData];
+           departure_airport_code === 'SEL'
+          ? (newSendingData[0] = ticket)
+          : (newSendingData[1] = ticket);
+          setSendingData([...newSendingData]);
+          departure_airport_code !== 'SEL' &&
+          goToPurchase(newSendingData);
+       }}
+    >
+``` 
+
+#### - checkbox를 통한 filter 기능 구현 (feat. searchParams) (FE 신수정)
 ```
 const CheckBox = ({ queryString, setFlightData }) => {
   const [isChecked, setIsChecked] = useState({
@@ -113,20 +142,8 @@ const CheckBox = ({ queryString, setFlightData }) => {
   };
   
 ```
-##### - useNavtigate안에 데이터를 담아 다음 페이지로 전달 (FE 신수정)
-```
-<S.FlightCostBox
-           onClick={() => {
-           const newSendingData = [...sendingData];
-           departure_airport_code === 'SEL'
-          ? (newSendingData[0] = ticket)
-          : (newSendingData[1] = ticket);
-          setSendingData([...newSendingData]);
-          departure_airport_code !== 'SEL' &&
-          goToPurchase(newSendingData);
-       }}
-    >
-```   
+#### - 이외 조건부 렌더링과 Toggle 버튼을 활용한 Accordion Menu build (FE 신수정)
+  
 #### 4. 구매 상품 확인 페이지
 - useLocation을 활용해 이전 페이지에서 보내준 데이터 시각화 
 - useNavtigate안에 데이터를 담아 다음 페이지로 전달
